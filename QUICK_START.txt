@@ -1,0 +1,48 @@
+============================================
+RTV33 REACT - QUICK START
+============================================
+
+📍 PROJECT LOCATION:
+/home/xadriano1995/rtv33-react/
+
+🚀 TO RUN:
+cd ~/rtv33-react
+npm install  (first time only)
+npm run dev
+
+🌐 OPENS AT:
+http://localhost:3033
+
+📁 ALSO AVAILABLE:
+Original HTML version at: ~/rtv33/
+
+============================================
+CHEAT SHEET:
+============================================
+
+Start React:    npm run dev
+Build:          npm run build
+Fix deps:       rm -rf node_modules && npm install
+Kill port:      npx kill-port 3033
+
+============================================
+FILES TO EDIT:
+============================================
+
+Colors:         src/styles/index.css
+Products:       src/data/productsData.js
+Articles:       src/data/knowledgeData.js
+Components:     src/components/
+
+============================================
+DOCUMENTATION:
+============================================
+
+Full docs:      README.md
+Setup guide:    SETUP_GUIDE.md
+Quick start:    START_HERE.md
+This session:   PROJECT_SESSION_SUMMARY.md
+
+============================================
+STATUS: ✅ READY TO RUN!
+============================================
