@@ -4,6 +4,7 @@ import { AppProvider } from './context/AppContext'
 
 // Layout Components
 import Navbar from './components/layout/Navbar'
+import MatrixNavbar from './components/layout/MatrixNavbar'
 import Footer from './components/layout/Footer'
 import CosmicBackground from './components/layout/CosmicBackground'
 
@@ -20,7 +21,7 @@ function App() {
       <Router>
         <div className="app">
           <CosmicBackground />
-          <Navbar />
+          <MatrixNavbar />
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />

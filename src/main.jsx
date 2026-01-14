@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './styles/index.css'
 import './styles/hero-modern.css'
+import './styles/matrix-theme.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -1,0 +1,431 @@
+/* ==================== */
+/* MATRIX-INSPIRED TRUTH SEEKING PORTAL */
+/* Sacred Geometry • Consciousness • Awakening */
+/* ==================== */
+
+:root {
+  /* Matrix Color Palette */
+  --matrix-green: #00ff41;
+  --matrix-dark-green: #003b00;
+  --matrix-light-green: #39ff14;
+  --matrix-neon-green: #0fff50;
+  --deep-black: #0d0208;
+  --void-black: #000000;
+  --cyber-cyan: #00ffff;
+  --sacred-gold: #ffd700;
+  --consciousness-purple: #9d4edd;
+  --awakening-blue: #4cc9f0;
+  
+  /* Sacred Geometry Colors */
+  --metatron-gold: #c9a15a;
+  --flower-of-life: #8338ec;
+  --seed-of-life: #3a86ff;
+  
+  /* Shadows and Glows */
+  --matrix-glow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
+  --sacred-glow: 0 0 15px var(--sacred-gold), 0 0 30px var(--sacred-gold);
+  --consciousness-glow: 0 0 20px var(--consciousness-purple);
+}
+
+/* Global Matrix Styling */
+body {
+  background: var(--deep-black);
+  color: var(--matrix-green);
+  font-family: 'Courier New', 'Share Tech Mono', 'Roboto Mono', monospace;
+  overflow-x: hidden;
+}
+
+/* Matrix Rain Effect */
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Glitch Text Effect */
+.glitch-text {
+  position: relative;
+  color: var(--matrix-neon-green);
+  text-shadow: var(--matrix-glow);
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--cyber-cyan);
+  animation: glitch 0.3s infinite;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--consciousness-purple);
+  animation: glitch 0.4s infinite reverse;
+}
+
+/* Neon Glow Effect */
+.neon-text {
+  color: var(--matrix-neon-green);
+  text-shadow: var(--matrix-glow);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.neon-border {
+  border: 2px solid var(--matrix-green);
+  box-shadow: var(--matrix-glow), inset 0 0 10px var(--matrix-green);
+  border-radius: 15px;
+}
+
+/* Pulsing Glow Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: var(--matrix-glow);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--matrix-green), 0 0 40px var(--matrix-green), 0 0 60px var(--matrix-green);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Sacred Geometry Background */
+.sacred-geometry-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.sacred-geometry-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle, transparent 40%, var(--flower-of-life) 40%, var(--flower-of-life) 41%, transparent 41%),
+    radial-gradient(circle, transparent 45%, var(--seed-of-life) 45%, var(--seed-of-life) 46%, transparent 46%);
+  opacity: 0.15;
+  animation: rotate-sacred 60s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-sacred {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Rabbit Hole Navigation */
+.rabbit-hole {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.rabbit-hole::after {
+  content: '🐇';
+  position: absolute;
+  right: -30px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.rabbit-hole:hover {
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 15px var(--cyber-cyan);
+  transform: translateX(-10px);
+}
+
+.rabbit-hole:hover::after {
+  opacity: 1;
+  right: -40px;
+}
+
+/* Consciousness Card */
+.consciousness-card {
+  background: linear-gradient(135deg, rgba(0, 255, 65, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
+  border: 1px solid var(--matrix-green);
+  border-radius: 15px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.consciousness-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, var(--matrix-green), transparent);
+  transform: rotate(0deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.consciousness-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--matrix-glow);
+  border-color: var(--matrix-neon-green);
+}
+
+.consciousness-card:hover::before {
+  transform: rotate(180deg);
+  opacity: 0.1;
+}
+
+/* Truth Seeker Badge */
+.truth-seeker-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(0, 255, 65, 0.1);
+  border: 2px solid var(--matrix-green);
+  border-radius: 30px;
+  color: var(--matrix-neon-green);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: var(--matrix-glow);
+  animation: pulse-glow 2s infinite;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.truth-seeker-badge:hover {
+  background: rgba(0, 255, 65, 0.2);
+  transform: scale(1.05);
+}
+
+/* Meditation Section */
+.meditation-section {
+  background: linear-gradient(180deg, rgba(157, 78, 221, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+  border-top: 2px solid var(--consciousness-purple);
+  border-bottom: 2px solid var(--consciousness-purple);
+  box-shadow: 0 0 40px rgba(157, 78, 221, 0.3);
+  padding: 4rem 0;
+  position: relative;
+}
+
+/* Health Food Card */
+.health-food-card {
+  background: linear-gradient(135deg, rgba(201, 161, 90, 0.1) 0%, rgba(0, 255, 65, 0.1) 100%);
+  border: 1px solid var(--sacred-gold);
+  box-shadow: var(--sacred-glow);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.health-food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px var(--sacred-gold);
+}
+
+/* Holographic Text */
+@keyframes holographic {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.holographic {
+  background: linear-gradient(
+    45deg,
+    var(--matrix-green),
+    var(--cyber-cyan),
+    var(--consciousness-purple),
+    var(--awakening-blue),
+    var(--matrix-green)
+  );
+  background-size: 400% 400%;
+  animation: holographic 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+/* Digital Grid */
+.digital-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scanline Effect */
+.scanline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 255, 65, 0) 50%,
+    rgba(0, 255, 65, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+  z-index: 1;
+}
+
+@keyframes scanline {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Mystical Orb */
+.mystical-orb {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--consciousness-purple), var(--deep-black));
+  box-shadow: 
+    0 0 30px var(--consciousness-purple),
+    0 0 60px var(--consciousness-purple),
+    inset 0 0 30px var(--consciousness-purple);
+  animation: float 4s ease-in-out infinite, pulse-orb 2s infinite;
+}
+
+@keyframes pulse-orb {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px var(--consciousness-purple),
+      0 0 60px var(--consciousness-purple),
+      inset 0 0 30px var(--consciousness-purple);
+  }
+  50% {
+    box-shadow: 
+      0 0 50px var(--consciousness-purple),
+      0 0 100px var(--consciousness-purple),
+      inset 0 0 50px var(--consciousness-purple);
+  }
+}
+
+/* Awakening Button */
+.awakening-btn {
+  background: transparent;
+  border: 2px solid var(--matrix-green);
+  color: var(--matrix-green);
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.awakening-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--matrix-green);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.awakening-btn:hover {
+  color: var(--deep-black);
+  box-shadow: var(--matrix-glow);
+  transform: scale(1.05);
+}
+
+.awakening-btn:hover::before {
+  left: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', 'Courier New', monospace;
+  color: var(--matrix-neon-green);
+  text-shadow: var(--matrix-glow);
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+
+p {
+  line-height: 1.8;
+  color: rgba(0, 255, 65, 0.9);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--cyber-cyan);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--matrix-green);
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: var(--matrix-neon-green);
+  text-shadow: var(--matrix-glow);
+}
+
+a:hover::after {
+  width: 100%;
+}
