@@ -36,6 +36,7 @@ const MatrixNavbar = () => {
   ]
 
   const moreNavItems = [
+    { path: '/hacks', label: 'RTV HACKS', icon: '🧬' },
     { path: '/ormus', label: 'ORMUS', icon: '✨' },
     { path: '/tesla', label: 'TESLA', icon: '⚡' },
     { path: '/contact', label: 'ET CONTACT', icon: '👽' },
@@ -45,6 +46,19 @@ const MatrixNavbar = () => {
   ]
 
   const [isMoreOpen, setIsMoreOpen] = useState(false)
+
+  const mobileNavItems = [...primaryNavItems, ...moreNavItems]
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      const prevOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prevOverflow
+      }
+    }
+  }, [isOpen])
 
   const handleRabbitHoleClick = () => {
     const rabbitHoleSection = document.getElementById('rabbit-hole')
@@ -283,23 +297,29 @@ const MatrixNavbar = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="mobile-nav neon-border"
           style={{
-            marginTop: '1rem',
-            padding: '2rem',
-            background: 'rgba(0, 0, 0, 0.95)',
-            borderRadius: '10px'
+            position: 'fixed',
+            top: '56px',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            padding: '1rem',
+            paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))',
+            background: 'rgba(0, 0, 0, 0.96)',
+            backdropFilter: 'blur(10px)',
+            overflowY: 'auto'
           }}
         >
-          {navItems.map((item, index) => (
+          {mobileNavItems.map((item, index) => (
             <Link
               key={item.path}
               to={item.path}
               onClick={() => setIsOpen(false)}
-              style={{ textDecoration: 'none', display: 'block', marginBottom: '1rem' }}
+              style={{ textDecoration: 'none', display: 'block', marginBottom: '0.6rem' }}
             >
               <motion.div
                 initial={{ x: -50, opacity: 0 }}
@@ -307,9 +327,9 @@ const MatrixNavbar = () => {
                 transition={{ delay: index * 0.1 }}
                 className={isActive(item.path) ? 'neon-text' : 'rabbit-hole'}
                 style={{
-                  fontSize: '1.2rem',
+                  fontSize: '1rem',
                   fontWeight: 'bold',
-                  padding: '1rem',
+                  padding: '0.85rem',
                   border: isActive(item.path) 
                     ? '2px solid var(--matrix-green)' 
                     : '1px solid rgba(0, 255, 65, 0.3)',
@@ -329,7 +349,7 @@ const MatrixNavbar = () => {
           <motion.button
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: navItems.length * 0.1 }}
+            transition={{ delay: mobileNavItems.length * 0.1 }}
             onClick={handleRabbitHoleClick}
             className="awakening-btn pulse-glow"
             style={{
@@ -349,6 +369,17 @@ const MatrixNavbar = () => {
           }
           .mobile-menu-btn {
             display: block !important;
+            padding: 0.35rem 0.65rem !important;
+            font-size: 1.2rem !important;
+          }
+          .glitch-text {
+            font-size: 1.25rem !important;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .glitch-text {
+            font-size: 1.1rem !important;
           }
         }
       `}</style>

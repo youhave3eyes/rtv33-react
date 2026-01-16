@@ -14,6 +14,7 @@ import Knowledge from './pages/Knowledge'
 import Community from './pages/Community'
 import Music from './pages/Music'
 import Shop from './pages/Shop'
+import RtvHacks from './pages/RtvHacks'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="/community" element={<Community />} />
               <Route path="/music" element={<Music />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/hacks" element={<RtvHacks />} />
             </Routes>
           </AnimatePresence>
           <Footer />
