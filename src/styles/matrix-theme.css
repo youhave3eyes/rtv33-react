@@ -2,6 +2,7 @@
 /* MATRIX-INSPIRED TRUTH SEEKING PORTAL */
 /* Sacred Geometry • Consciousness • Awakening */
 /* ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
 
 :root {
   /* Matrix Color Palette */
@@ -13,26 +14,28 @@
   --void-black: #000000;
   --cyber-cyan: #00ffff;
   --sacred-gold: #ffd700;
-  --consciousness-purple: #9d4edd;
+  --consciousness-purple: #000000;
   --awakening-blue: #4cc9f0;
   
   /* Sacred Geometry Colors */
   --metatron-gold: #c9a15a;
-  --flower-of-life: #8338ec;
+  --flower-of-life: #000000;
   --seed-of-life: #3a86ff;
   
   /* Shadows and Glows */
-  --matrix-glow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
-  --sacred-glow: 0 0 15px var(--sacred-gold), 0 0 30px var(--sacred-gold);
-  --consciousness-glow: 0 0 20px var(--consciousness-purple);
+  --matrix-glow: 0 0 6px var(--matrix-green), 0 0 12px var(--matrix-green);
+  --sacred-glow: 0 0 8px var(--sacred-gold), 0 0 16px var(--sacred-gold);
+  --consciousness-glow: 0 0 10px var(--consciousness-purple);
 }
 
 /* Global Matrix Styling */
 body {
-  background: var(--deep-black);
+  background: #000000;
   color: var(--matrix-green);
   font-family: 'Courier New', 'Share Tech Mono', 'Roboto Mono', monospace;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Matrix Rain Effect */
@@ -169,10 +172,10 @@ body {
 
 /* Consciousness Card */
 .consciousness-card {
-  background: linear-gradient(135deg, rgba(0, 255, 65, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
-  border: 1px solid var(--matrix-green);
-  border-radius: 15px;
-  padding: 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.78) 0%, rgba(10, 10, 18, 0.78) 100%);
+  border: 1px solid rgba(0, 255, 65, 0.65);
+  border-radius: 14px;
+  padding: 1.4rem;
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
@@ -237,11 +240,11 @@ body {
 
 /* Health Food Card */
 .health-food-card {
-  background: linear-gradient(135deg, rgba(201, 161, 90, 0.1) 0%, rgba(0, 255, 65, 0.1) 100%);
-  border: 1px solid var(--sacred-gold);
-  box-shadow: var(--sacred-glow);
-  border-radius: 15px;
-  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.78) 0%, rgba(10, 10, 18, 0.78) 100%);
+  border: 1px solid rgba(201, 161, 90, 0.55);
+  box-shadow: 0 0 18px rgba(201, 161, 90, 0.22);
+  border-radius: 14px;
+  padding: 1.25rem;
   transition: all 0.3s ease;
 }
 
@@ -384,23 +387,35 @@ body {
   left: 0;
 }
 
-/* Typography */
+/* Typography - Matrix Block Font Style */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', 'Courier New', monospace;
+  font-weight: 700;
   color: var(--matrix-neon-green);
-  text-shadow: var(--matrix-glow);
-  letter-spacing: 2px;
+  text-shadow:
+    0 0 4px rgba(0, 255, 65, 0.35),
+    1px 1px 3px rgba(0, 0, 0, 0.9);
+  letter-spacing: 3px;
   margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
+h1 { font-size: 3.5rem; font-weight: 900; }
+h2 { font-size: 2.5rem; font-weight: 700; }
+h3 { font-size: 2rem; font-weight: 700; }
 
-p {
+p, li, span, div {
+  font-family: 'Orbitron', 'Courier New', monospace;
   line-height: 1.8;
-  color: rgba(0, 255, 65, 0.9);
+  color: rgba(0, 255, 65, 0.95);
+  text-shadow:
+    0 0 2px rgba(0, 255, 65, 0.22),
+    1px 1px 2px rgba(0, 0, 0, 0.95);
   margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 4px;
+  border-radius: 2px;
 }
 
 a {

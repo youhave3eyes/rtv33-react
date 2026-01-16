@@ -51,7 +51,7 @@ const Hero = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <h1 className="hero-title-modern">
-                <span className="title-line">RAISE THE</span>
+                <span className="title-line">RAIS3 TH3</span>
                 <span className="title-line gradient-text">VIBRATION</span>
               </h1>
             </motion.div>
@@ -74,11 +74,14 @@ const Hero = () => {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
+              style={{ 
+                background: 'rgba(0, 0, 0, 0.5)', 
+                padding: '1rem 1.5rem', 
+                borderRadius: '8px',
+                backdropFilter: 'blur(5px)'
+              }}
             >
-              Discover the power within you. Transform your life through the science of 
-              <span className="highlight-text"> frequency</span>,
-              <span className="highlight-text"> nutrition</span>, and 
-              <span className="highlight-text"> mindfulness</span>.
+              Discover the power within you. Transform your life through the science of frequency, nutrition, and mindfulness.
             </motion.p>
 
             {/* Action Buttons */}
@@ -159,28 +162,42 @@ const Hero = () => {
                 <div className="orb-core"></div>
               </motion.div>
               
-              {/* Floating Icons */}
-              <motion.div 
-                className="floating-icon icon-1"
-                animate={{ y: [-10, 10, -10], rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                🧘
-              </motion.div>
-              <motion.div 
-                className="floating-icon icon-2"
-                animate={{ y: [10, -10, 10], rotate: [0, -5, 5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                🎵
-              </motion.div>
-              <motion.div 
-                className="floating-icon icon-3"
-                animate={{ y: [-15, 15, -15], rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              >
-                🌿
-              </motion.div>
+              {/* Matrix Number Particles replacing floating icons */}
+              {Array.from({ length: 20 }).map((_, i) => {
+                const chars = ['0','1','2','3','4','5','6','7','8','9','ア','イ','ウ','エ','オ','カ','キ','ク','ケ','コ'];
+                return (
+                  <motion.div 
+                    key={i}
+                    className="floating-matrix-number"
+                    animate={{ 
+                      y: [0, -100 - Math.random() * 60, 0],
+                      x: [0, (Math.random() - 0.5) * 40, 0],
+                      opacity: [0.2, 1, 0.2],
+                      scale: [0.8, 1.2, 0.8]
+                    }}
+                    transition={{ 
+                      duration: 4 + Math.random() * 4, 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      delay: i * 0.2
+                    }}
+                    style={{
+                      position: 'absolute',
+                      left: `${5 + (i * 4.5)}%`,
+                      bottom: `${10 + Math.random() * 20}%`,
+                      fontSize: '28px',
+                      fontWeight: 'bold',
+                      color: '#00FF41',
+                      textShadow: '0 0 15px #00FF41, 0 0 30px #00FF41',
+                      fontFamily: 'Courier New, monospace',
+                      pointerEvents: 'none',
+                      zIndex: 1
+                    }}
+                  >
+                    {chars[Math.floor(Math.random() * chars.length)]}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>

@@ -11,17 +11,53 @@ const MatrixNavbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
     }
+
+    const handleDocClick = (e) => {
+      // Close MORE dropdown when clicking outside
+      if (!e.target.closest?.('.more-dropdown-root')) {
+        setIsMoreOpen(false)
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('click', handleDocClick)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('click', handleDocClick)
+    }
   }, [])
 
-  const navItems = [
+  const primaryNavItems = [
     { path: '/', label: 'AWAKENING', icon: '👁️' },
     { path: '/knowledge', label: 'KNOWLEDGE', icon: '📚' },
     { path: '/community', label: 'CONSCIOUSNESS', icon: '🌐' },
     { path: '/music', label: 'FREQUENCIES', icon: '🎵' },
     { path: '/shop', label: 'TEMPLE GOODS', icon: '🛒' },
   ]
+
+  const moreNavItems = [
+    { path: '/ormus', label: 'ORMUS', icon: '✨' },
+    { path: '/tesla', label: 'TESLA', icon: '⚡' },
+    { path: '/contact', label: 'ET CONTACT', icon: '👽' },
+    { path: '/medicine', label: 'PLANT MEDICINE', icon: '🍄' },
+    { path: '/organic', label: 'ORGANIC LIVING', icon: '🌿' },
+    { path: '/earth-shape', label: 'EARTH SHAPE', icon: '🌍' },
+  ]
+
+  const [isMoreOpen, setIsMoreOpen] = useState(false)
+
+  const handleRabbitHoleClick = () => {
+    const rabbitHoleSection = document.getElementById('rabbit-hole')
+    if (rabbitHoleSection) {
+      rabbitHoleSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  // Close MORE dropdown on route change
+  useEffect(() => {
+    setIsMoreOpen(false)
+    setIsOpen(false)
+  }, [location.pathname])
 
   const isActive = (path) => {
     if (path === '/' && location.pathname === '/') return true
@@ -51,7 +87,7 @@ const MatrixNavbar = () => {
           ? 'var(--matrix-glow)' 
           : 'none',
         transition: 'all 0.3s ease',
-        padding: '1rem 2rem'
+        padding: '0.45rem 1rem'
       }}
     >
       <div style={{ 
@@ -59,7 +95,8 @@ const MatrixNavbar = () => {
         margin: '0 auto', 
         display: 'flex', 
         justifyContent: 'space-between', 
-        alignItems: 'center' 
+        alignItems: 'center',
+        gap: '0.75rem'
       }}>
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none' }}>
@@ -69,17 +106,17 @@ const MatrixNavbar = () => {
             style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
           >
             <span className="glitch-text" data-text="RTV33" style={{ 
-              fontSize: '2rem', 
+              fontSize: '1.6rem', 
               fontWeight: 'bold',
               fontFamily: 'Orbitron, monospace'
             }}>
               RTV33
             </span>
             <span className="mystical-orb" style={{ 
-              width: '30px', 
-              height: '30px',
-              minWidth: '30px',
-              minHeight: '30px'
+              width: '24px', 
+              height: '24px',
+              minWidth: '24px',
+              minHeight: '24px'
             }}></span>
           </motion.div>
         </Link>
@@ -87,13 +124,13 @@ const MatrixNavbar = () => {
         {/* Desktop Navigation */}
         <div style={{ 
           display: 'flex', 
-          gap: '2rem', 
+          gap: '0.4rem', 
           alignItems: 'center',
           '@media (max-width: 768px)': {
             display: 'none'
           }
         }} className="desktop-nav">
-          {navItems.map((item, index) => (
+          {primaryNavItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
@@ -104,10 +141,10 @@ const MatrixNavbar = () => {
                 whileTap={{ scale: 0.95 }}
                 className={isActive(item.path) ? 'neon-text pulse-glow' : 'rabbit-hole'}
                 style={{
-                  fontSize: '1rem',
+                  fontSize: '0.72rem',
                   fontWeight: 'bold',
-                  letterSpacing: '1px',
-                  padding: '0.5rem 1rem',
+                  letterSpacing: '0.4px',
+                  padding: '0.25rem 0.5rem',
                   border: isActive(item.path) 
                     ? '2px solid var(--matrix-green)' 
                     : '2px solid transparent',
@@ -115,7 +152,7 @@ const MatrixNavbar = () => {
                   transition: 'all 0.3s ease',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem'
+                  gap: '0.3rem'
                 }}
               >
                 <span>{item.icon}</span>
@@ -124,18 +161,99 @@ const MatrixNavbar = () => {
             </Link>
           ))}
           
-          {/* Special CTA Button */}
+          {/* MORE Dropdown */}
+         <div className="more-dropdown-root" style={{ position: 'relative' }}>
+           <motion.button
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             onClick={() => setIsMoreOpen((v) => !v)}
+             className={isMoreOpen ? 'awakening-btn pulse-glow' : 'awakening-btn'}
+             style={{
+               padding: '0.35rem 0.65rem',
+               fontSize: '0.7rem',
+               marginLeft: '0.25rem'
+             }}
+           >
+             ☰ MORE
+           </motion.button>
+
+           {isMoreOpen && (
+             <div
+               style={{
+                 position: 'absolute',
+                 top: 'calc(100% + 10px)',
+                 right: 0,
+                 minWidth: '220px',
+                 background: 'rgba(0, 0, 0, 0.95)',
+                 border: '1px solid rgba(0, 255, 65, 0.35)',
+                 borderRadius: '10px',
+                 padding: '0.5rem',
+                 boxShadow: '0 0 25px rgba(0, 255, 65, 0.25)',
+                 backdropFilter: 'blur(10px)',
+                 zIndex: 2000
+               }}
+             >
+               {moreNavItems.map((item) => (
+                 <Link
+                   key={item.path}
+                   to={item.path}
+                   onClick={() => setIsMoreOpen(false)}
+                   style={{ textDecoration: 'none' }}
+                 >
+                   <div
+                     className={isActive(item.path) ? 'neon-text pulse-glow' : 'rabbit-hole'}
+                     style={{
+                       display: 'flex',
+                       alignItems: 'center',
+                       justifyContent: 'space-between',
+                       gap: '0.6rem',
+                       padding: '0.45rem 0.6rem',
+                       borderRadius: '8px',
+                       border: isActive(item.path)
+                         ? '1px solid var(--matrix-green)'
+                         : '1px solid transparent'
+                     }}
+                   >
+                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                       <span>{item.icon}</span>
+                       <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.5px' }}>
+                         {item.label}
+                       </span>
+                     </span>
+                     <span style={{ opacity: 0.7 }}>→</span>
+                   </div>
+                 </Link>
+               ))}
+
+               <div style={{ height: '1px', background: 'rgba(0, 255, 65, 0.15)', margin: '0.4rem 0' }} />
+
+               <button
+                 onClick={() => {
+                   setIsMoreOpen(false)
+                   handleRabbitHoleClick()
+                 }}
+                 className="awakening-btn pulse-glow"
+                 style={{ width: '100%', padding: '0.45rem 0.65rem', fontSize: '0.7rem' }}
+               >
+                 🐇 RABBIT HOLE
+               </button>
+             </div>
+           )}
+         </div>
+
+         {/* Special CTA Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleRabbitHoleClick}
             className="awakening-btn pulse-glow"
             style={{
-              padding: '0.6rem 1.5rem',
-              fontSize: '0.9rem',
-              marginLeft: '1rem'
+              padding: '0.35rem 0.65rem',
+              fontSize: '0.7rem',
+              marginLeft: '0.25rem'
             }}
           >
-            🐇 DOWN THE RABBIT HOLE
+            🐇 RABBIT HOLE
           </motion.button>
         </div>
 
@@ -212,6 +330,7 @@ const MatrixNavbar = () => {
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: navItems.length * 0.1 }}
+            onClick={handleRabbitHoleClick}
             className="awakening-btn pulse-glow"
             style={{
               width: '100%',

@@ -10,7 +10,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #16213e 100%);
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+  padding-top: 100px;
 }
 
 /* Animated Background Gradient */
@@ -90,17 +91,24 @@
 
 /* Title with 3D Effect */
 .hero-title-modern {
-  font-size: clamp(3rem, 8vw, 6rem);
+  /* Force single-line title */
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.05;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 0.45em;
+  white-space: nowrap;
+  padding-top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title-line {
-  display: block;
+  display: inline;
   color: #fff;
   text-shadow: 
     2px 2px 0 rgba(0, 0, 0, 0.3),

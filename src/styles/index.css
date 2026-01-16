@@ -272,18 +272,63 @@ button {
 
 /* Cards */
 .card {
-    background: rgba(30, 41, 59, 0.6);
+    background: rgba(0, 0, 0, 0.84);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    border-radius: 20px;
-    padding: 2rem;
+    border: 1px solid rgba(139, 92, 246, 0.26);
+    border-radius: 14px;
+    padding: 1.4rem;
     transition: all 0.4s ease;
+}
+
+/* Unified card style for new pages / inline-card layouts */
+.rtv-card {
+    background: rgba(0, 0, 0, 0.84);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.26);
+    border-radius: 14px;
+    padding: 1.4rem;
+    transition: all 0.35s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
     border-color: var(--primary);
     box-shadow: var(--shadow-glow);
+}
+
+/* Global card readability overrides (darker + slightly smaller) */
+.feed-post-card,
+.video-card,
+.path-card,
+.featured-card,
+.knowledge-card-gaia,
+.benefit-card,
+.create-post-box {
+    background: rgba(0, 0, 0, 0.86) !important;
+    border: 1px solid rgba(139, 92, 246, 0.26) !important;
+    border-radius: 14px !important;
+}
+
+.feed-post-card,
+.video-card,
+.path-card,
+.knowledge-card-gaia,
+.benefit-card {
+    padding: 1.4rem !important;
+}
+
+.featured-card {
+    padding: 1.6rem !important;
+}
+
+/* Keep text readable */
+.feed-post-card p,
+.video-card p,
+.path-card p,
+.featured-card p,
+.knowledge-card-gaia p,
+.benefit-card p {
+    color: #E2E8F0 !important;
 }
 
 /* Buttons */
@@ -584,10 +629,10 @@ button {
 }
 
 .food-item {
-    background: rgba(30, 41, 59, 0.6);
-    border: 2px solid rgba(139, 92, 246, 0.2);
-    border-radius: 20px;
-    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.78);
+    border: 1px solid rgba(139, 92, 246, 0.26);
+    border-radius: 14px;
+    padding: 1.25rem;
     text-align: center;
     transition: all 0.3s ease;
 }
@@ -608,10 +653,10 @@ button {
 .vibe-calculator {
     max-width: 800px;
     margin: 3rem auto;
-    background: rgba(30, 41, 59, 0.6);
-    border: 2px solid rgba(139, 92, 246, 0.2);
-    border-radius: 30px;
-    padding: 3rem;
+    background: rgba(0, 0, 0, 0.78);
+    border: 1px solid rgba(139, 92, 246, 0.26);
+    border-radius: 16px;
+    padding: 1.75rem;
 }
 
 .question {
@@ -778,10 +823,10 @@ button {
 }
 
 .music-card {
-    background: rgba(30, 41, 59, 0.8);
-    border: 3px solid rgba(139, 92, 246, 0.2);
-    border-radius: 25px;
-    padding: 2rem;
+    background: rgba(0, 0, 0, 0.78);
+    border: 2px solid rgba(139, 92, 246, 0.28);
+    border-radius: 18px;
+    padding: 1.4rem;
     text-align: center;
     transition: all 0.4s ease;
 }
@@ -806,10 +851,10 @@ button {
 }
 
 .playlist-card {
-    background: rgba(30, 41, 59, 0.8);
-    border: 2px solid rgba(139, 92, 246, 0.2);
-    border-radius: 20px;
-    padding: 2rem;
+    background: rgba(0, 0, 0, 0.84);
+    border: 2px solid rgba(139, 92, 246, 0.28);
+    border-radius: 16px;
+    padding: 1.4rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -827,8 +872,8 @@ button {
 }
 
 .shop-tab-btn {
-    padding: 1rem 2.5rem;
-    background: rgba(30, 41, 59, 0.6);
+    padding: 0.75rem 1.6rem;
+    background: rgba(0, 0, 0, 0.78);
     border: 2px solid rgba(139, 92, 246, 0.3);
     border-radius: 30px;
     color: var(--light);
@@ -849,7 +894,7 @@ button {
 }
 
 .product-card {
-    background: rgba(30, 41, 59, 0.6);
+    background: rgba(0, 0, 0, 0.84);
     border: 1px solid rgba(139, 92, 246, 0.2);
     border-radius: 20px;
     overflow: hidden;

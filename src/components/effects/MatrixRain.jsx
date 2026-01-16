@@ -1,11 +1,22 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
-const MatrixRain = () => {
-  const canvasRef = useRef(null);
-
+const MatrixRain = ({ color = '#00FF41', glowColor = '#0FFF50' }) => {
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    // Create canvas attached directly to body for highest z-index
+    const canvas = document.createElement('canvas');
+    canvas.className = 'matrix-rain-overlay';
+    Object.assign(canvas.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100vw',
+      height: '100vh',
+      pointerEvents: 'none',
+      zIndex: '9999',
+      opacity: '0.35',
+      background: 'transparent',
+    });
+    document.body.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
     
@@ -30,7 +41,7 @@ const MatrixRain = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Set text style
-      ctx.fillStyle = '#0F0'; // Green text
+      ctx.fillStyle = color; // Text color
       ctx.font = fontSize + 'px monospace';
 
       // Loop through drops
@@ -44,12 +55,12 @@ const MatrixRain = () => {
         
         // Add glow effect for random characters
         if (Math.random() > 0.975) {
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = '#0F0';
-          ctx.fillStyle = '#0FFF50'; // Brighter green
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = color;
+          ctx.fillStyle = glowColor; // Brighter/glow color
         } else {
           ctx.shadowBlur = 0;
-          ctx.fillStyle = '#00FF41'; // Normal green
+          ctx.fillStyle = color;
         }
         
         ctx.fillText(text, x, y);
@@ -81,25 +92,11 @@ const MatrixRain = () => {
     return () => {
       clearInterval(intervalId);
       window.removeEventListener('resize', handleResize);
+      document.body.removeChild(canvas);
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="matrix-canvas"
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: -1,
-        opacity: 0.3,
-        pointerEvents: 'none'
-      }}
-    />
-  );
+  return null;
 };
 
 export default MatrixRain;
