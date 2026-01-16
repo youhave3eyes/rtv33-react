@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Rtv33Logo from './Rtv33Logo'
 
 const MatrixNavbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,10 +63,7 @@ const MatrixNavbar = () => {
   }, [isOpen])
 
   const handleRabbitHoleClick = () => {
-    const rabbitHoleSection = document.getElementById('rabbit-hole')
-    if (rabbitHoleSection) {
-      rabbitHoleSection.scrollIntoView({ behavior: 'smooth' })
-    }
+    navigate('/rabbit-hole')
   }
 
   // Close MORE dropdown on route change
@@ -119,19 +118,7 @@ const MatrixNavbar = () => {
             whileTap={{ scale: 0.95 }}
             style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
           >
-            <span className="glitch-text" data-text="RTV33" style={{ 
-              fontSize: '1.6rem', 
-              fontWeight: 'bold',
-              fontFamily: 'Orbitron, monospace'
-            }}>
-              RTV33
-            </span>
-            <span className="mystical-orb" style={{ 
-              width: '24px', 
-              height: '24px',
-              minWidth: '24px',
-              minHeight: '24px'
-            }}></span>
+            <Rtv33Logo compact />
           </motion.div>
         </Link>
 
@@ -197,12 +184,15 @@ const MatrixNavbar = () => {
                  position: 'absolute',
                  top: 'calc(100% + 10px)',
                  right: 0,
-                 minWidth: '220px',
+                 minWidth: '240px',
+                 maxHeight: '70vh',
+                 overflowY: 'auto',
                  background: 'rgba(0, 0, 0, 0.95)',
                  border: '1px solid rgba(0, 255, 65, 0.35)',
                  borderRadius: '10px',
                  padding: '0.5rem',
                  boxShadow: '0 0 25px rgba(0, 255, 65, 0.25)',
+                 scrollbarWidth: 'thin',
                  backdropFilter: 'blur(10px)',
                  zIndex: 2000
                }}
@@ -249,7 +239,7 @@ const MatrixNavbar = () => {
                  className="awakening-btn pulse-glow"
                  style={{ width: '100%', padding: '0.45rem 0.65rem', fontSize: '0.7rem' }}
                >
-                 🐇 RABBIT HOLE
+                 🐇 DOWN THE RABBIT HOLE
                </button>
              </div>
            )}
@@ -267,7 +257,7 @@ const MatrixNavbar = () => {
               marginLeft: '0.25rem'
             }}
           >
-            🐇 RABBIT HOLE
+            🐇 DOWN THE RABBIT HOLE
           </motion.button>
         </div>
 

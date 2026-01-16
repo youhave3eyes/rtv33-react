@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import MatrixRain from '../components/effects/MatrixRain'
+// MatrixRain is provided globally in App.jsx
 
 const RtvHacks = () => {
   const hacks = [
@@ -62,8 +62,6 @@ const RtvHacks = () => {
       className="scanline"
       style={{ position: 'relative', background: '#000000', minHeight: '100vh' }}
     >
-      <MatrixRain />
-
       <section
         style={{
           padding: '6rem 1.25rem 2.5rem',

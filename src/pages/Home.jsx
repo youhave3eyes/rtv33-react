@@ -8,7 +8,7 @@ import Methods from '../components/home/Methods'
 import FrequencyPlayer from '../components/home/FrequencyPlayer'
 import HighVibeFood from '../components/home/HighVibeFood'
 import VibeCalculator from '../components/home/VibeCalculator'
-import MatrixRain from '../components/effects/MatrixRain'
+// MatrixRain is provided globally in App.jsx
 import TruthSeekerSection from '../components/sections/TruthSeekerSection'
 import MeditationSection from '../components/sections/MeditationSection'
 import HealthFoodSection from '../components/sections/HealthFoodSection'
@@ -23,9 +23,6 @@ const Home = () => {
       className="scanline"
       style={{ position: 'relative' }}
     >
-      {/* Matrix Rain Background Effect */}
-      <MatrixRain />
-      
       {/* Matrix Hero Section */}
       <MatrixHero />
       

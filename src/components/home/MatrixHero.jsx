@@ -4,7 +4,7 @@ import SacredGeometry from '../effects/SacredGeometry'
 
 const MatrixHero = () => {
   const [typedText, setTypedText] = useState('')
-  const fullText = 'WAKE UP, NEO...'
+  const fullText = 'WAKE UP, CHOSEN ONE...'
   
   useEffect(() => {
     let index = 0
@@ -104,7 +104,6 @@ const MatrixHero = () => {
             className="neon-text"
             style={{ fontSize: 'clamp(1rem, 2.5vw, 1.5rem)' }}
           >
-            Follow the white rabbit 🐇
           </motion.p>
         </motion.div>
 

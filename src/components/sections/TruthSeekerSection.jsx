@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import SacredGeometry from '../effects/SacredGeometry';
 
 const TruthSeekerSection = () => {
+  const navigate = useNavigate();
   const topics = [
     {
       icon: '🧘',
@@ -81,6 +83,7 @@ const TruthSeekerSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="consciousness-card scanline"
+              onClick={() => navigate(topic.rabbit_hole)}
               style={{ cursor: 'pointer' }}
             >
               <div style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
@@ -93,7 +96,7 @@ const TruthSeekerSection = () => {
                 {topic.description}
               </p>
               <div style={{ textAlign: 'center' }}>
-                <button className="awakening-btn">
+                <button className="awakening-btn" onClick={(e) => { e.stopPropagation(); navigate(topic.rabbit_hole) }}>
                   DIVE DEEPER →
                 </button>
               </div>

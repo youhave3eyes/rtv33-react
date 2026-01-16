@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import MatrixRain from '../components/effects/MatrixRain'
+// MatrixRain is provided globally in App.jsx (purple on Knowledge)
 import KnowledgeHero from '../components/knowledge/KnowledgeHero'
 import FeaturedContent from '../components/knowledge/FeaturedContent'
 import SearchFilter from '../components/knowledge/SearchFilter'
@@ -21,7 +21,6 @@ const Knowledge = () => {
       className="scanline"
       style={{ position: 'relative', background: '#000000', minHeight: '100vh' }}
     >
-      <MatrixRain color="#9D4EDD" glowColor="#C77DFF" />
       <KnowledgeHero />
       <FeaturedContent />
       <SearchFilter 
