@@ -30,7 +30,8 @@ const MatrixNavbar = () => {
   }, [])
 
   const primaryNavItems = [
-    { path: '/', label: 'AWAKENING', icon: '👁️' },
+    { path: '/', label: 'HOME', icon: '🏠' },
+    { path: '/awakening', label: 'AWAKENING', icon: '✨' },
     { path: '/knowledge', label: 'KNOWLEDGE', icon: '📚' },
     { path: '/community', label: 'CONSCIOUSNESS', icon: '🌐' },
     { path: '/music', label: 'FREQUENCIES', icon: '🎵' },
