@@ -4,6 +4,7 @@ import App from './App'
 import './styles/index.css'
 import './styles/hero-modern.css'
 import './styles/matrix-theme.css'
+import './styles/gaia-professional.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

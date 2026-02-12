@@ -80,8 +80,8 @@ const KnowledgeTopic = () => {
               <Link to="/knowledge" className="awakening-btn" style={{ textDecoration: 'none' }}>
                 ← Back to Knowledge
               </Link>
-              <Link to="/rabbit-hole" className="awakening-btn pulse-glow" style={{ textDecoration: 'none' }}>
-                🐇 Down the Rabbit Hole
+              <Link to="/awakening" className="awakening-btn pulse-glow" style={{ textDecoration: 'none' }}>
+                ✨ Enter the Awakening
               </Link>
             </div>
           </div>

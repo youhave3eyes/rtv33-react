@@ -1,17 +1,9 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { useApp } from '../context/AppContext'
-import Hero from '../components/home/Hero'
-import MatrixHero from '../components/home/MatrixHero'
-import About from '../components/home/About'
-import Methods from '../components/home/Methods'
+import ProfessionalHero from '../components/home/ProfessionalHero'
+import FeaturesSection from '../components/home/FeaturesSection'
+import TopicsSection from '../components/home/TopicsSection'
 import FrequencyPlayer from '../components/home/FrequencyPlayer'
-import HighVibeFood from '../components/home/HighVibeFood'
-import VibeCalculator from '../components/home/VibeCalculator'
-// MatrixRain is provided globally in App.jsx
-import TruthSeekerSection from '../components/sections/TruthSeekerSection'
-import MeditationSection from '../components/sections/MeditationSection'
-import HealthFoodSection from '../components/sections/HealthFoodSection'
+import '../styles/gaia-professional.css'
 
 const Home = () => {
   return (
@@ -20,29 +12,30 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="scanline"
-      style={{ position: 'relative' }}
+      style={{ position: 'relative', background: 'var(--gaia-deep-blue)' }}
     >
-      {/* Matrix Hero Section */}
-      <MatrixHero />
+      {/* Professional Hero Section - Gaia Style */}
+      <ProfessionalHero />
       
-      {/* Original Sections */}
-      <About />
+      {/* Features Overview */}
+      <FeaturesSection />
       
-      {/* New Truth Seeker Portal */}
-      <TruthSeekerSection />
+      {/* Topics Grid */}
+      <TopicsSection />
       
-      {/* Meditation & Consciousness */}
-      <MeditationSection />
-      
-      {/* Sacred Nutrition */}
-      <HealthFoodSection />
-      
-      {/* Original Sections */}
-      <Methods />
-      <FrequencyPlayer />
-      <HighVibeFood />
-      <VibeCalculator />
+      {/* Frequency Player - Keep this useful tool */}
+      <div className="gaia-section gaia-section-alt">
+        <div className="gaia-container">
+          <div className="gaia-section-header">
+            <h2 className="gaia-section-title">Healing Frequencies</h2>
+            <div className="gaia-accent-line" />
+            <p className="gaia-section-subtitle">
+              Experience the power of 528Hz Love Frequency and other sacred tones
+            </p>
+          </div>
+          <FrequencyPlayer />
+        </div>
+      </div>
     </motion.div>
   )
 }

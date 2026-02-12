@@ -63,7 +63,7 @@ const MatrixNavbar = () => {
   }, [isOpen])
 
   const handleRabbitHoleClick = () => {
-    navigate('/rabbit-hole')
+    navigate('/awakening')
   }
 
   // Close MORE dropdown on route change
@@ -239,7 +239,7 @@ const MatrixNavbar = () => {
                  className="awakening-btn pulse-glow"
                  style={{ width: '100%', padding: '0.45rem 0.65rem', fontSize: '0.7rem' }}
                >
-                 🐇 DOWN THE RABBIT HOLE
+                 ✨ DOWN THE RABBIT HOLE
                </button>
              </div>
            )}
@@ -257,7 +257,7 @@ const MatrixNavbar = () => {
               marginLeft: '0.25rem'
             }}
           >
-            🐇 DOWN THE RABBIT HOLE
+            ✨ DOWN THE RABBIT HOLE
           </motion.button>
         </div>
 
@@ -347,7 +347,7 @@ const MatrixNavbar = () => {
               marginTop: '1rem'
             }}
           >
-            🐇 DOWN THE RABBIT HOLE
+            ✨ DOWN THE RABBIT HOLE
           </motion.button>
         </motion.div>
       )}

@@ -1,0 +1,320 @@
+/* ==================== */
+/* GAIA PROFESSIONAL THEME */
+/* Clean, modern, spiritual but professional */
+/* ==================== */
+
+:root {
+  /* Gaia-inspired Professional Colors */
+  --gaia-deep-blue: #0A1628;
+  --gaia-dark-blue: #0F2027;
+  --gaia-navy: #1A2332;
+  --gaia-slate: #2C3E50;
+  --gaia-teal: #16A085;
+  --gaia-cyan: #3498DB;
+  --gaia-gold: #F39C12;
+  --gaia-coral: #E74C3C;
+  --gaia-purple: #9B59B6;
+  --gaia-text-primary: #ECF0F1;
+  --gaia-text-secondary: #BDC3C7;
+  --gaia-text-muted: #7F8C8D;
+  --gaia-accent: #1ABC9C;
+  
+  /* Professional Gradients */
+  --gaia-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gaia-gradient-hero: linear-gradient(180deg, #0A1628 0%, #1A2332 50%, #2C3E50 100%);
+  --gaia-gradient-card: linear-gradient(135deg, rgba(22, 160, 133, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+}
+
+/* Professional Hero Section */
+.gaia-hero {
+  background: var(--gaia-gradient-hero);
+  padding: 8rem 2rem 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gaia-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(22, 160, 133, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.gaia-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--gaia-text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.gaia-hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--gaia-text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Professional Cards */
+.gaia-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.gaia-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--gaia-accent);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 40px rgba(26, 188, 156, 0.15),
+    0 0 0 1px rgba(26, 188, 156, 0.2);
+}
+
+.gaia-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gaia-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.gaia-card-description {
+  font-size: 1rem;
+  color: var(--gaia-text-secondary);
+  line-height: 1.6;
+}
+
+/* Professional Buttons */
+.gaia-btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: var(--gaia-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.gaia-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.gaia-btn-outline {
+  background: transparent;
+  border: 2px solid var(--gaia-accent);
+  color: var(--gaia-accent);
+  box-shadow: none;
+}
+
+.gaia-btn-outline:hover {
+  background: var(--gaia-accent);
+  color: white;
+}
+
+/* Professional Section Containers */
+.gaia-section {
+  padding: 5rem 2rem;
+  background: var(--gaia-dark-blue);
+  position: relative;
+}
+
+.gaia-section-alt {
+  background: var(--gaia-deep-blue);
+}
+
+.gaia-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gaia-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.gaia-section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gaia-text-primary);
+  margin-bottom: 1rem;
+}
+
+.gaia-section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gaia-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid Layouts */
+.gaia-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.gaia-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.gaia-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Feature Cards */
+.gaia-feature {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.gaia-feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.gaia-feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gaia-text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.gaia-feature-text {
+  font-size: 0.95rem;
+  color: var(--gaia-text-secondary);
+  line-height: 1.6;
+}
+
+/* Accent Line */
+.gaia-accent-line {
+  width: 60px;
+  height: 4px;
+  background: var(--gaia-gradient-primary);
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+/* Subtle Animations */
+@keyframes gaia-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gaia-fade-in {
+  animation: gaia-fade-in 0.6s ease-out;
+}
+
+/* Video/Media Cards */
+.gaia-media-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  aspect-ratio: 16/9;
+}
+
+.gaia-media-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+}
+
+/* Tags */
+.gaia-tag {
+  display: inline-block;
+  padding: 0.4rem 0.875rem;
+  background: rgba(26, 188, 156, 0.15);
+  color: var(--gaia-accent);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0.25rem;
+  border: 1px solid rgba(26, 188, 156, 0.3);
+}
+
+/* Professional Navigation Enhancement */
+.gaia-nav {
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Stats/Numbers */
+.gaia-stat {
+  text-align: center;
+  padding: 2rem;
+}
+
+.gaia-stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gaia-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.gaia-stat-label {
+  font-size: 1rem;
+  color: var(--gaia-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .gaia-hero {
+    padding: 6rem 1.5rem 4rem;
+  }
+  
+  .gaia-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .gaia-grid-2,
+  .gaia-grid-3,
+  .gaia-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Smooth Scrolling for Professional Feel */
+html.gaia-theme {
+  scroll-behavior: smooth;
+}

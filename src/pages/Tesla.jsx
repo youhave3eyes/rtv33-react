@@ -45,8 +45,8 @@ const Tesla = () => {
               A practical resonance hub: coherence practices + experiment mindset.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <Link to="/rabbit-hole" className="awakening-btn pulse-glow" style={{ textDecoration: 'none' }}>
-                🐇 Down the Rabbit Hole
+              <Link to="/awakening" className="awakening-btn pulse-glow" style={{ textDecoration: 'none' }}>
+                ✨ Enter the Awakening
               </Link>
               <Link to="/knowledge/quantum" className="awakening-btn" style={{ textDecoration: 'none' }}>
                 🌌 Quantum Consciousness
