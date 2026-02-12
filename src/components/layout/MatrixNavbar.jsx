@@ -79,29 +79,32 @@ const MatrixNavbar = () => {
     return false
   }
 
+  const isAwakening = location.pathname === '/awakening'
+
   return (
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
+      className="gaia-nav"
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: scrolled 
-          ? 'rgba(0, 0, 0, 0.95)' 
-          : 'rgba(0, 0, 0, 0.8)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: scrolled 
-          ? '2px solid var(--matrix-green)' 
-          : '2px solid rgba(0, 255, 65, 0.3)',
-        boxShadow: scrolled 
-          ? 'var(--matrix-glow)' 
-          : 'none',
+        background: isAwakening
+          ? (scrolled ? 'rgba(0, 0, 0, 0.95)' : 'rgba(0, 0, 0, 0.8)')
+          : 'rgba(11, 12, 15, 0.98)',
+        backdropFilter: isAwakening ? 'blur(10px)' : 'blur(20px)',
+        borderBottom: isAwakening
+          ? (scrolled ? '2px solid var(--matrix-green)' : '2px solid rgba(0, 255, 65, 0.3)')
+          : '1px solid rgba(255, 255, 255, 0.06)',
+        boxShadow: isAwakening 
+          ? (scrolled ? 'var(--matrix-glow)' : 'none')
+          : '0 2px 10px rgba(0, 0, 0, 0.3)',
         transition: 'all 0.3s ease',
-        padding: '0.45rem 1rem'
+        padding: '0.75rem 1.5rem'
       }}
     >
       <div style={{ 

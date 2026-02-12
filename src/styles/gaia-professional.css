@@ -1,34 +1,62 @@
 /* ==================== */
 /* GAIA PROFESSIONAL THEME */
-/* Clean, modern, spiritual but professional */
+/* Clean, modern, spiritual but professional - Exact Gaia Style */
 /* ==================== */
 
 :root {
-  /* Gaia-inspired Professional Colors */
-  --gaia-deep-blue: #0A1628;
-  --gaia-dark-blue: #0F2027;
-  --gaia-navy: #1A2332;
-  --gaia-slate: #2C3E50;
-  --gaia-teal: #16A085;
-  --gaia-cyan: #3498DB;
-  --gaia-gold: #F39C12;
-  --gaia-coral: #E74C3C;
-  --gaia-purple: #9B59B6;
-  --gaia-text-primary: #ECF0F1;
-  --gaia-text-secondary: #BDC3C7;
-  --gaia-text-muted: #7F8C8D;
-  --gaia-accent: #1ABC9C;
+  /* Exact Gaia Color Palette */
+  --gaia-black: #0B0C0F;
+  --gaia-dark: #161820;
+  --gaia-darker: #1C1E26;
+  --gaia-navy: #242730;
+  --gaia-slate: #2E3139;
+  --gaia-gray: #3A3D47;
   
-  /* Professional Gradients */
+  --gaia-teal: #4FD1C5;
+  --gaia-cyan: #38B2AC;
+  --gaia-blue: #4299E1;
+  --gaia-purple: #9F7AEA;
+  --gaia-pink: #ED64A6;
+  --gaia-orange: #F6AD55;
+  --gaia-yellow: #F6E05E;
+  
+  --gaia-text-white: #FFFFFF;
+  --gaia-text-primary: #F7FAFC;
+  --gaia-text-secondary: #CBD5E0;
+  --gaia-text-muted: #A0AEC0;
+  --gaia-text-dim: #718096;
+  
+  --gaia-accent: #4FD1C5;
+  --gaia-accent-hover: #38B2AC;
+  
+  /* Professional Gradients - Gaia Style */
   --gaia-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gaia-gradient-hero: linear-gradient(180deg, #0A1628 0%, #1A2332 50%, #2C3E50 100%);
-  --gaia-gradient-card: linear-gradient(135deg, rgba(22, 160, 133, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+  --gaia-gradient-hero: linear-gradient(180deg, #0B0C0F 0%, #161820 100%);
+  --gaia-gradient-overlay: linear-gradient(180deg, rgba(11, 12, 15, 0) 0%, rgba(11, 12, 15, 0.8) 100%);
+  
+  /* Crisp Rendering */
+  --gaia-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --gaia-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --gaia-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --gaia-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
 }
 
-/* Professional Hero Section */
+/* Global Crisp Rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Professional Hero Section - Gaia Style */
 .gaia-hero {
-  background: var(--gaia-gradient-hero);
-  padding: 8rem 2rem 6rem;
+  background: var(--gaia-black);
+  padding: 10rem 2rem 8rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -42,46 +70,45 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(22, 160, 133, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(79, 209, 197, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(159, 122, 234, 0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
 .gaia-hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  color: var(--gaia-text-primary);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  color: var(--gaia-text-white);
   margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 .gaia-hero-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  color: var(--gaia-text-secondary);
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.6;
-  font-weight: 300;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  color: var(--gaia-text-muted);
+  max-width: 750px;
+  margin: 0 auto 3rem;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
-/* Professional Cards */
+/* Professional Cards - Gaia Clean Style */
 .gaia-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: var(--gaia-darker);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   padding: 2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--gaia-shadow-md);
 }
 
 .gaia-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--gaia-accent);
-  transform: translateY(-4px);
-  box-shadow: 
-    0 10px 40px rgba(26, 188, 156, 0.15),
-    0 0 0 1px rgba(26, 188, 156, 0.2);
+  background: var(--gaia-navy);
+  border-color: rgba(79, 209, 197, 0.3);
+  transform: translateY(-6px);
+  box-shadow: var(--gaia-shadow-xl);
 }
 
 .gaia-card-title {
@@ -97,48 +124,53 @@
   line-height: 1.6;
 }
 
-/* Professional Buttons */
+/* Professional Buttons - Gaia Style */
 .gaia-btn {
   display: inline-block;
-  padding: 0.875rem 2rem;
-  background: var(--gaia-gradient-primary);
-  color: white;
+  padding: 1rem 2.5rem;
+  background: var(--gaia-teal);
+  color: var(--gaia-black);
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: var(--gaia-shadow-md);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
 }
 
 .gaia-btn:hover {
+  background: var(--gaia-cyan);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--gaia-shadow-lg);
 }
 
 .gaia-btn-outline {
   background: transparent;
-  border: 2px solid var(--gaia-accent);
-  color: var(--gaia-accent);
+  border: 2px solid var(--gaia-teal);
+  color: var(--gaia-teal);
   box-shadow: none;
 }
 
 .gaia-btn-outline:hover {
-  background: var(--gaia-accent);
-  color: white;
+  background: rgba(79, 209, 197, 0.1);
+  border-color: var(--gaia-cyan);
+  color: var(--gaia-cyan);
 }
 
 /* Professional Section Containers */
 .gaia-section {
-  padding: 5rem 2rem;
-  background: var(--gaia-dark-blue);
+  padding: 6rem 2rem;
+  background: var(--gaia-dark);
   position: relative;
 }
 
 .gaia-section-alt {
-  background: var(--gaia-deep-blue);
+  background: var(--gaia-black);
 }
 
 .gaia-container {
@@ -235,13 +267,32 @@
   animation: gaia-fade-in 0.6s ease-out;
 }
 
-/* Video/Media Cards */
+/* Video/Media Cards - Exact Gaia Style */
 .gaia-media-card {
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--gaia-darker);
   aspect-ratio: 16/9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--gaia-shadow-md);
+}
+
+.gaia-media-card:hover {
+  transform: scale(1.03);
+  box-shadow: var(--gaia-shadow-xl);
+}
+
+.gaia-media-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gaia-media-card:hover img {
+  transform: scale(1.05);
 }
 
 .gaia-media-overlay {
@@ -250,28 +301,71 @@
   left: 0;
   right: 0;
   padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  background: var(--gaia-gradient-overlay);
   color: white;
 }
 
-/* Tags */
-.gaia-tag {
-  display: inline-block;
-  padding: 0.4rem 0.875rem;
-  background: rgba(26, 188, 156, 0.15);
-  color: var(--gaia-accent);
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin: 0.25rem;
-  border: 1px solid rgba(26, 188, 156, 0.3);
+.gaia-media-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--gaia-text-white);
 }
 
-/* Professional Navigation Enhancement */
+.gaia-media-meta {
+  font-size: 0.875rem;
+  color: var(--gaia-text-secondary);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Tags - Gaia Style */
+.gaia-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(79, 209, 197, 0.1);
+  color: var(--gaia-teal);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0.25rem;
+  border: 1px solid rgba(79, 209, 197, 0.2);
+  transition: all 0.2s ease;
+}
+
+.gaia-tag:hover {
+  background: rgba(79, 209, 197, 0.2);
+  border-color: var(--gaia-teal);
+}
+
+/* Professional Navigation Enhancement - Gaia Style */
 .gaia-nav {
-  background: rgba(10, 22, 40, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 12, 15, 0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.gaia-nav-link {
+  color: var(--gaia-text-secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.gaia-nav-link:hover {
+  color: var(--gaia-text-white);
+  background: rgba(79, 209, 197, 0.1);
+}
+
+.gaia-nav-link.active {
+  color: var(--gaia-teal);
+  background: rgba(79, 209, 197, 0.15);
 }
 
 /* Stats/Numbers */
